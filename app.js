@@ -35,15 +35,15 @@ app.use("/api/v1", paymentRoutes)
 
 // Serve React frontend in production
 
-if (process.env.NODE_ENV === "Production") {
-  const buildPath = path.join(__dirname, "../frontend/build");
-  app.use(express.static(buildPath));
-   console.log(`Serving static files from: ${buildPath}`);
+// if (process.env.NODE_ENV === "Production") {
+//   const buildPath = path.join(__dirname, "../frontend/build");
+//   app.use(express.static(buildPath));
+//    console.log(`Serving static files from: ${buildPath}`);
 
-  app.get(/(.*)/, (req, res) => {
-    res.sendFile(path.join(buildPath, "index.html"));
-  });
-}
+//   app.get(/(.*)/, (req, res) => {
+//     res.sendFile(path.join(buildPath, "index.html"));
+//   });
+// }
 app.use(errorMiddlewre)
 const PORT = process.env.PORT || 3000
 const Mode = process.env.NODE_ENV || "Development"
